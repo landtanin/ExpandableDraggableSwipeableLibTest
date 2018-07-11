@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableItemPin
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(),
                     mainFragment,
+                    FRAGMENT_LIST_VIEW,
                     R.id.main_content_container
             );
 

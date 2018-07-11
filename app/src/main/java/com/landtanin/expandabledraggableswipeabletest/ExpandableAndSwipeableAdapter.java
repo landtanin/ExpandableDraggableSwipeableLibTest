@@ -217,28 +217,31 @@ class ExpandableAndSwipeableAdapter
 
     @Override
     public boolean onCheckGroupCanStartDrag(GroupVH holder, int groupPosition, int x, int y) {
-        // x, y --- relative from the itemView's top-left
-        final View containerView = holder.mContainer;
-        final View dragHandleView = holder.mDragHandle;
-
-        final int offsetX = containerView.getLeft() + (int) (containerView.getTranslationX() + 0.5f);
-        final int offsetY = containerView.getTop() + (int) (containerView.getTranslationY() + 0.5f);
-
-//        return ViewUtils.hitTest(dragHandleView, x - offsetX, y - offsetY);
-        return com.landtanin.expandabledraggableswipeabletest.utils.ViewUtils
-                .hitTest(dragHandleView, x - offsetX, y - offsetY);
+//        // x, y --- relative from the itemView's top-left
+//        final View containerView = holder.mContainer;
+//        final View dragHandleView = holder.mDragHandle;
+//
+//        final int offsetX = containerView.getLeft() + (int) (containerView.getTranslationX() + 0.5f);
+//        final int offsetY = containerView.getTop() + (int) (containerView.getTranslationY() + 0.5f);
+//
+////        return ViewUtils.hitTest(dragHandleView, x - offsetX, y - offsetY);
+//        return com.landtanin.expandabledraggableswipeabletest.utils.ViewUtils
+//                .hitTest(dragHandleView, x - offsetX, y - offsetY);
+        return false;
     }
 
     @Override
     public boolean onCheckChildCanStartDrag(ChildVH holder, int groupPosition, int childPosition, int x, int y) {
-        // x, y --- relative from the itemView's top-left
-        final View containerView = holder.mContainer;
-        final View dragHandleView = holder.mDragHandle;
+//        // x, y --- relative from the itemView's top-left
+//        final View containerView = holder.mContainer;
+//        final View dragHandleView = holder.mDragHandle;
+//
+//        final int offsetX = containerView.getLeft() + (int) (containerView.getTranslationX() + 0.5f);
+//        final int offsetY = containerView.getTop() + (int) (containerView.getTranslationY() + 0.5f);
+//
+//        return ViewUtils.hitTest(dragHandleView, x - offsetX, y - offsetY);
+        return false;
 
-        final int offsetX = containerView.getLeft() + (int) (containerView.getTranslationX() + 0.5f);
-        final int offsetY = containerView.getTop() + (int) (containerView.getTranslationY() + 0.5f);
-
-        return ViewUtils.hitTest(dragHandleView, x - offsetX, y - offsetY);
     }
 
     @Override
@@ -255,22 +258,22 @@ class ExpandableAndSwipeableAdapter
 
     @Override
     public void onMoveGroupItem(int fromGroupPosition, int toGroupPosition) {
-        mProvider.moveGroupItem(fromGroupPosition, toGroupPosition);
+//        mProvider.moveGroupItem(fromGroupPosition, toGroupPosition);
     }
 
     @Override
     public void onMoveChildItem(int fromGroupPosition, int fromChildPosition, int toGroupPosition, int toChildPosition) {
-        mProvider.moveChildItem(fromGroupPosition, fromChildPosition, toGroupPosition, toChildPosition);
+//        mProvider.moveChildItem(fromGroupPosition, fromChildPosition, toGroupPosition, toChildPosition);
     }
 
     @Override
     public boolean onCheckGroupCanDrop(int draggingGroupPosition, int dropGroupPosition) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean onCheckChildCanDrop(int draggingGroupPosition, int draggingChildPosition, int dropGroupPosition, int dropChildPosition) {
-        return true;
+        return false;
     }
 
     @Override
