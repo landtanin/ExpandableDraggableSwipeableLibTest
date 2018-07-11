@@ -374,7 +374,8 @@ class ExpandableAndSwipeableAdapter
 
             isExpanded = (expandState & Expandable.STATE_FLAG_IS_EXPANDED) != 0;
 
-            holder.mContainer.setBackgroundResource(bgResId);
+//            holder.mContainer.setBackgroundResource(bgResId);
+            holder.mContainer.setBackgroundResource(R.drawable.bg_item_normal_state);
             holder.mIndicator.setExpandedState(isExpanded, animateIndicator);
         }
 
@@ -419,7 +420,8 @@ class ExpandableAndSwipeableAdapter
                 bgResId = R.drawable.bg_item_normal_state;
             }
 
-            holder.mContainer.setBackgroundResource(bgResId);
+//            holder.mContainer.setBackgroundResource(bgResId);
+            holder.mContainer.setBackgroundResource(R.drawable.bg_item_normal_state);
         }
 
         // set swiping properties
