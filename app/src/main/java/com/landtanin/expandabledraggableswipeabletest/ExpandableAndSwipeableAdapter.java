@@ -28,9 +28,7 @@ import com.landtanin.expandabledraggableswipeabletest.utils.DrawableUtils;
 import com.landtanin.expandabledraggableswipeabletest.utils.ViewUtils;
 import com.landtanin.expandabledraggableswipeabletest.widget.ExpandableItemIndicator;
 
-import java.util.List;
-
-public class ExpandableAndSwipeableAdapter
+class ExpandableAndSwipeableAdapter
         extends AbstractExpandableItemAdapter<ExpandableAndSwipeableAdapter.GroupVH,
                                                 ExpandableAndSwipeableAdapter.ChildVH>
         implements
@@ -120,7 +118,6 @@ public class ExpandableAndSwipeableAdapter
 
     // --------------------Constructor--------------------
     public ExpandableAndSwipeableAdapter(RecyclerViewExpandableItemManager expandableItemManager,
-                                         List<StupidModel> modelList,
                                          AbstractExpandableDataProvider dataProvider) {
 
         mExpandableItemManager = expandableItemManager;

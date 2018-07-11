@@ -51,7 +51,7 @@
             android:layout_marginRight="40dp"
             android:gravity="center"/>
 
-        <com.h6ah4i.android.example.advrecyclerview.common.widget.ExpandableItemIndicator
+        <com.landtanin.expandabledraggableswipeabletest.widget.ExpandableItemIndicator
             android:id="@+id/indicator"
             android:layout_width="24dp"
             android:layout_height="24dp"
