@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SimpleItemAnimator;
-
-import com.h6ah4i.android.widget.advrecyclerview.expandable.RecyclerViewExpandableItemManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,22 +47,44 @@ public class MainActivity extends AppCompatActivity {
 //        swipeManager.attachRecyclerView(recyclerView);
 
         // Expandable RV
-        recyclerView = findViewById(R.id.rv);
-        RecyclerViewExpandableItemManager expandableItemManager
-                = new RecyclerViewExpandableItemManager(null);
+//        recyclerView = findViewById(R.id.rv);
+//        RecyclerViewExpandableItemManager expandableItemManager
+//                = new RecyclerViewExpandableItemManager(null);
+//
+//        ExpandableAdapter expandableAdapter = new ExpandableAdapter(this, groupModels);
+//        RecyclerView.Adapter wrappedAdapter = expandableItemManager
+//                                                .createWrappedAdapter(expandableAdapter);
+//
+//
+//        recyclerView.setAdapter(wrappedAdapter);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        recyclerView.setHasFixedSize(true);
+//
+//        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+//
+//        expandableItemManager.attachRecyclerView(recyclerView);
 
-        ExpandableAdapter expandableAdapter = new ExpandableAdapter(this, groupModels);
-        RecyclerView.Adapter wrappedAdapter = expandableItemManager
-                                                .createWrappedAdapter(expandableAdapter);
+
+        // Swipable + Expandable
+//        recyclerView = findViewById(R.id.rv);
+//
+//        RecyclerViewExpandableItemManager expandableItemManager
+//                = new RecyclerViewExpandableItemManager(null);
+//
+//        ExpandableAdapter expandableAdapter = new ExpandableAdapter(this, groupModels);
+//        RecyclerView.Adapter wrappedAdapter = expandableItemManager
+//                .createWrappedAdapter(expandableAdapter);
+//
+//
+//        recyclerView.setAdapter(wrappedAdapter);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        recyclerView.setHasFixedSize(true);
+//
+//        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+//
+//        expandableItemManager.attachRecyclerView(recyclerView);
 
 
-        recyclerView.setAdapter(wrappedAdapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setHasFixedSize(true);
-
-        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-
-        expandableItemManager.attachRecyclerView(recyclerView);
 
     }
 }

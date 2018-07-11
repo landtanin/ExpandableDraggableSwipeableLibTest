@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemViewHolder;
+import com.landtanin.expandabledraggableswipeabletest.R;
 
 import java.util.List;
 
@@ -60,16 +61,16 @@ public class ExpandableAdapter extends AbstractExpandableItemAdapter<ExpandableA
 
     @Override
     public void onBindGroupViewHolder(GroupVH holder, int groupPosition, int viewType) {
-        GroupVH holder1 = holder;
+
         StupidGroupModel item = groupModels.get(groupPosition);
-        holder1.textView.setText(item.getStupidName());
+        holder.textView.setText(item.getStupidName());
     }
 
     @Override
     public void onBindChildViewHolder(ChildVH holder, int groupPosition, int childPosition, int viewType) {
-        ChildVH holder1 = holder;
+
         StupidModel item = groupModels.get(childPosition).children.get(childPosition);
-        holder1.textView.setText(item.getStupidName());
+        holder.textView.setText(item.getStupidName());
     }
 
     @Override

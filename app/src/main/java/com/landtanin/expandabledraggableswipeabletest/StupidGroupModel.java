@@ -7,7 +7,7 @@ public class StupidGroupModel {
 
     private int id;
     private String stupidName;
-    List<StupidModel> children;
+    public List<StupidModel> children;
 
     public StupidGroupModel(int id, String stupidName) {
         this.id = id;

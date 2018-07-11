@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:id="@+id/list_item"
+<FrameLayout android:id="@+id/list_item"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="56dp">
+    android:layout_height="56dp"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- for getSwipeableContainerView() -->
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/drag_handle"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|left"
+            android:background="#20000000"
+            android:clickable="true"
+            tools:ignore="RtlHardcoded"/>
 
         <!-- Content View(s) -->
         <TextView
