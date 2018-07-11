@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.landtanin.expandabledraggableswipeabletest.R;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildItem;
 
 import java.util.List;
 
 public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.SimpleViewHolder> {
 
     Context context;
-    private List<StupidModel> modelList;
+    private List<HomeAlarmChildItem> modelList;
 
-    public SimpleAdapter(Context context, List<StupidModel> modelList) {
+    public SimpleAdapter(Context context, List<HomeAlarmChildItem> modelList) {
         this.context = context;
         this.modelList = modelList;
     }
@@ -33,7 +33,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.SimpleView
     public void onBindViewHolder(SimpleViewHolder holder, int position) {
 
         SimpleViewHolder holder1 = holder;
-        holder1.textView.setText(modelList.get(position).getStupidName());
+        holder1.textView.setText(modelList.get(position).getTimeStr());
 
     }
 

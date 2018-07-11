@@ -24,6 +24,7 @@ import com.h6ah4i.android.widget.advrecyclerview.swipeable.RecyclerViewSwipeMana
 import com.h6ah4i.android.widget.advrecyclerview.touchguard.RecyclerViewTouchActionGuardManager;
 import com.h6ah4i.android.widget.advrecyclerview.utils.WrapperAdapterUtils;
 import com.landtanin.expandabledraggableswipeabletest.data.AbstractExpandableDataProvider;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.ExpandableAndSwipeableAdapter;
 
 /**
  * Created by landtanin on 5/1/2017 AD.
@@ -179,11 +180,11 @@ public class MainFragment extends Fragment
 
 //        for (int groupIndex = 0; groupIndex < 15; groupIndex++) {
 //
-//            StupidGroupModel group = new StupidGroupModel(
+//            HomeAlarmGroupItem group = new HomeAlarmGroupItem(
 //                    groupIndex,
 //                    "group " + groupIndex);
 //            for (int i = 0; i < 5; i++) {
-//                group.children.add(new StupidModel(i, "name " + i));
+//                group.children.add(new HomeAlarmChildItem(i, "name " + i));
 //            }
 //
 //            groupModels.add(group);

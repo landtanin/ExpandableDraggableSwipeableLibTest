@@ -15,15 +15,16 @@ import com.h6ah4i.android.widget.advrecyclerview.swipeable.action.SwipeResultAct
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.action.SwipeResultActionDoNothing;
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.action.SwipeResultActionMoveToSwipedDirection;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractSwipeableItemViewHolder;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildItem;
 
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.RecyclerViewHolder> implements SwipeableItemAdapter<MyAdapter.RecyclerViewHolder> {
 
     Context context;
-    private List<StupidModel> newList;
+    private List<HomeAlarmChildItem> newList;
 
-    public MyAdapter(Context context, List<StupidModel> newList) {
+    public MyAdapter(Context context, List<HomeAlarmChildItem> newList) {
         setHasStableIds(true);
         this.context = context;
         this.newList = newList;
@@ -43,7 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.RecyclerViewHolder
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
 
         RecyclerViewHolder holder1 = holder;
-        holder1.textView.setText(newList.get(position).getStupidName());
+        holder1.textView.setText(newList.get(position).getTimeStr());
 
     }
 

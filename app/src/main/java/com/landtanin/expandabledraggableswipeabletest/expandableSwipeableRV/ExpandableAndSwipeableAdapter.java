@@ -1,4 +1,4 @@
-package com.landtanin.expandabledraggableswipeabletest;
+package com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,12 +23,13 @@ import com.h6ah4i.android.widget.advrecyclerview.swipeable.action.SwipeResultAct
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractDraggableSwipeableItemViewHolder;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.utils.RecyclerViewAdapterUtils;
+import com.landtanin.expandabledraggableswipeabletest.R;
 import com.landtanin.expandabledraggableswipeabletest.data.AbstractExpandableDataProvider;
 import com.landtanin.expandabledraggableswipeabletest.utils.DrawableUtils;
 import com.landtanin.expandabledraggableswipeabletest.utils.ViewUtils;
 import com.landtanin.expandabledraggableswipeabletest.widget.ExpandableItemIndicator;
 
-class ExpandableAndSwipeableAdapter
+public class ExpandableAndSwipeableAdapter
         extends AbstractExpandableItemAdapter<ExpandableAndSwipeableAdapter.GroupVH,
                                                 ExpandableAndSwipeableAdapter.ChildVH>
         implements
@@ -525,7 +526,7 @@ class ExpandableAndSwipeableAdapter
 //    public void onBindViewHolder(SimpleViewHolder holder, int position) {
 //
 //        SimpleViewHolder holder1 = holder;
-//        holder1.textView.setText(modelList.get(position).getStupidName());
+//        holder1.textView.setText(modelList.get(position).getTitleStr());
 //
 //    }
 //

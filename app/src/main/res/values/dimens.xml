@@ -9,4 +9,28 @@
     <dimen name="list_item2_height">96dp</dimen>
     <dimen name="list_group_item_height">96dp</dimen>
     <dimen name="list_group_item_with_add_remove_buttons_height">108dp</dimen>
+
+    <!--list_item_home_alarm_group-->
+    <dimen name="home_alarm_group_list_height">132dp</dimen>
+    <dimen name="home_alarm_group_list_status_stripe_height">8dp</dimen>
+
+    <!--list_item_home_alarm_child-->
+    <dimen name="home_alarm_child_list_height">50dp</dimen>
+    <dimen name="home_alarm_child_title_txt_size">15sp</dimen>
+    <dimen name="home_alarm_child_des_txt_size">11sp</dimen>
+    <dimen name="home_alarm_child_above_time_txt_size">11sp</dimen>
+    <dimen name="home_alarm_child_time_txt_size">11sp</dimen>
+    <dimen name="home_alarm_child_circle_width">6dp</dimen>
+    <dimen name="home_alarm_child_circle_height">20dp</dimen>
+    <dimen name="home_alarm_child_circle_margin_end">2dp</dimen>
+    <dimen name="home_alarm_child_time_txt_margin_end">12dp</dimen>
+    <dimen name="home_alarm_child_time_txt_margin_bottom">8dp</dimen>
+    <dimen name="home_alarm_child_above_alarm_txt_margin_end">12dp</dimen>
+    <dimen name="home_alarm_child_des_txt_margin_start">12dp</dimen>
+    <dimen name="home_alarm_child_des_txt_margin_bottom">8dp</dimen>
+    <dimen name="home_alarm_child_title_txt_margin_top">8dp</dimen>
+    <dimen name="home_alarm_child_title_txt_margin_start">12dp</dimen>
+    <dimen name="home_alarm_child_title_txt_height">20dp</dimen>
+    <dimen name="home_alarm_child_layout_margin_sides">15dp</dimen>
+    <dimen name="home_alarm_child_layout_margin_bottom">1dp</dimen>
 </resources>

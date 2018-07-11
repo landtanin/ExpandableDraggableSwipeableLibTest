@@ -4,6 +4,13 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#636363</color>
 
+    // Home
+    <color name="cardGray">#F5F5F5</color>
+    // Status color
+    <color name="redStatus">#E34040</color>
+    <color name="yelowStatus">#EFCC3A</color>
+    <color name="greenStatus">#70C7A6</color>
+
     <color name="bg_item_normal_state">#fff0f0f0</color>
     <color name="bg_item_dragging_state">#ffffdddd</color>
     <color name="bg_item_dragging_active_state">#ffff9999</color>

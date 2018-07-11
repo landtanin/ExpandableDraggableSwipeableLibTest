@@ -17,7 +17,7 @@ import com.landtanin.expandabledraggableswipeabletest.utils.ActivityUtils;
 
 public class MainActivity extends AppCompatActivity implements ExpandableItemPinnedMessageDialogFragment.EventListener {
     
-    //    private List<StupidModel> models = new ArrayList<>();
+    //    private List<HomeAlarmChildItem> models = new ArrayList<>();
     private static final String FRAGMENT_TAG_DATA_PROVIDER = "data provider";
     private static final String FRAGMENT_LIST_VIEW = "list view";
     private static final String FRAGMENT_TAG_ITEM_PINNED_DIALOG = "item pinned dialog";
