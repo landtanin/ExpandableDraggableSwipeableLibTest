@@ -38,27 +38,24 @@ public class ExampleExpandableDataProvider extends AbstractExpandableDataProvide
     private int mLastRemovedChildPosition = -1;
 
     public ExampleExpandableDataProvider() {
-        final String groupItems = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        final String childItems = "abc";
 
         mData = new LinkedList<>();
 
-        for (int i = 0; i < groupItems.length(); i++) {
-            //noinspection UnnecessaryLocalVariable
-            final long groupId = i;
-            final String groupText = Character.toString(groupItems.charAt(i));
-            final ConcreteGroupData group = new ConcreteGroupData(groupId, groupText);
+        for (int groupIndex = 0; groupIndex < 15; groupIndex++) {
+
+            final ConcreteGroupData group = new ConcreteGroupData(
+                                                    groupIndex,
+                                                    "group " + groupIndex);
             final List<ChildData> children = new ArrayList<>();
 
-            for (int j = 0; j < childItems.length(); j++) {
-                final long childId = group.generateNewChildId();
-                final String childText = Character.toString(childItems.charAt(j));
-
-                children.add(new ConcreteChildData(childId, childText));
+            for (int i = 0; i < 5; i++) {
+                children.add(new ConcreteChildData(i, "child " + i));
             }
 
             mData.add(new Pair<GroupData, List<ChildData>>(group, children));
+
         }
+
     }
 
     @Override
