@@ -27,8 +27,10 @@ import com.h6ah4i.android.widget.advrecyclerview.utils.RecyclerViewAdapterUtils;
 import com.landtanin.expandabledraggableswipeabletest.R;
 import com.landtanin.expandabledraggableswipeabletest.data.AbstractExpandableDataProvider;
 import com.landtanin.expandabledraggableswipeabletest.data.ExampleExpandableDataProvider;
+import com.landtanin.expandabledraggableswipeabletest.databinding.ListItemHomeAlarmChildBinding;
 import com.landtanin.expandabledraggableswipeabletest.databinding.ListItemHomeAlarmGroupBinding;
 import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.viewmodel.HomeAlarmGroupListVM;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.viewmodel.HomeAlarmRecordListVM;
 import com.landtanin.expandabledraggableswipeabletest.utils.DrawableUtils;
 
 public class ExpandableAndSwipeableAdapter
@@ -107,18 +109,9 @@ public class ExpandableAndSwipeableAdapter
     public static class GroupVH extends AbstractDraggableSwipeableItemViewHolder implements ExpandableItemViewHolder {
 
         public FrameLayout mContainer;
-//        public TextView mTextView;
         private int mExpandStateFlags;
 
         private ListItemHomeAlarmGroupBinding mBinding;
-
-//        public GroupVH(View v) {
-//            super(v);
-//
-//            mContainer = v.findViewById(R.id.container);
-////            mDragHandle = v.findViewById(R.id.drag_handle);
-//            mTextView = v.findViewById(R.id.header_title_txt);
-//        }
 
         public GroupVH(ListItemHomeAlarmGroupBinding binding) {
             super(binding.getRoot());
@@ -155,15 +148,25 @@ public class ExpandableAndSwipeableAdapter
     public static class ChildVH extends AbstractDraggableSwipeableItemViewHolder implements ExpandableItemViewHolder {
 
         public FrameLayout mContainer;
-        //        public View mDragHandle;
-        public TextView mTextView;
         private int mExpandStateFlags;
 
-        public ChildVH(View v) {
-            super(v);
-            mContainer = v.findViewById(R.id.container);
+        private ListItemHomeAlarmChildBinding mBinding;
+//
+        public ChildVH(ListItemHomeAlarmChildBinding binding) {
+            super(binding.getRoot());
+
+            mBinding = binding;
+            HomeAlarmRecordListVM viewModel = new HomeAlarmRecordListVM();
+            mBinding.setViewModel(viewModel);
+
+            mContainer = binding.getRoot().findViewById(R.id.container);
 //            mDragHandle = v.findViewById(R.id.drag_handle);
-            mTextView = v.findViewById(android.R.id.text1);
+//            mTextView = v.findViewById(android.R.id.text1);
+        }
+
+        public void bind(ExampleExpandableDataProvider.ConcreteChildData model) {
+            mBinding.getViewModel().setModel(model);
+            mBinding.executePendingBindings();
         }
 
         @Override
@@ -401,8 +404,15 @@ public class ExpandableAndSwipeableAdapter
     @Override
     public ChildVH onCreateChildViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        final View v = inflater.inflate(R.layout.list_item, parent, false);
-        return new ChildVH(v);
+//        final View v = inflater.inflate(R.layout.list_item, parent, false);
+//        return new ChildVH(v);
+
+        ListItemHomeAlarmChildBinding binding = DataBindingUtil
+                .inflate(inflater,
+                        R.layout.list_item_home_alarm_child,
+                        parent,
+                        false);
+        return new ChildVH(binding);
     }
 
     @Override
@@ -414,7 +424,6 @@ public class ExpandableAndSwipeableAdapter
         holder.itemView.setOnClickListener(mItemViewOnClickListener);
 
         // set content
-//        holder.mTextView.setText(item.getTitle());
         ExampleExpandableDataProvider.ConcreteGroupData groupModel
                 = (ExampleExpandableDataProvider.ConcreteGroupData) mProvider.getGroupItem(groupPosition);
         holder.bind(groupModel);
@@ -473,8 +482,11 @@ public class ExpandableAndSwipeableAdapter
         // (if the item is *not pinned*, click event comes to the mContainer)
         holder.mContainer.setOnClickListener(mSwipeableViewContainerOnClickListener);
 
-        // set text
-        holder.mTextView.setText(item.getTitle());
+        // set content
+//        holder.mTextView.setText(item.getTitle());
+        ExampleExpandableDataProvider.ConcreteChildData childModel
+                = (ExampleExpandableDataProvider.ConcreteChildData) mProvider.getChildItem(groupPosition, childPosition);
+        holder.bind(childModel);
 
         final int dragState = holder.getDragStateFlags();
         final int swipeState = holder.getSwipeStateFlags();

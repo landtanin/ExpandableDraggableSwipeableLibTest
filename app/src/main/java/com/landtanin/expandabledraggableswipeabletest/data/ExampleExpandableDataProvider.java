@@ -327,23 +327,28 @@ public class ExampleExpandableDataProvider extends AbstractExpandableDataProvide
 
     public static final class ConcreteChildData extends ChildData {
 
-        private long mId;
-        private final String mText;
+        private long id;
+        private final String title;
         private boolean mPinned;
 
+        private String sourceOfAlarmStr;
+        private String timeStr;
+        private String aboveTimeStr;
+        private int circleStatusColor;
+
         ConcreteChildData(long id, String text) {
-            mId = id;
-            mText = text;
+            this.id = id;
+            title = text;
         }
 
         @Override
         public long getChildId() {
-            return mId;
+            return id;
         }
 
         @Override
         public String getTitle() {
-            return mText;
+            return title;
         }
 
         @Override
@@ -357,7 +362,39 @@ public class ExampleExpandableDataProvider extends AbstractExpandableDataProvide
         }
 
         public void setChildId(long id) {
-            this.mId = id;
+            this.id = id;
+        }
+
+        public String getSourceOfAlarmStr() {
+            return sourceOfAlarmStr;
+        }
+
+        public void setSourceOfAlarmStr(String sourceOfAlarmStr) {
+            this.sourceOfAlarmStr = sourceOfAlarmStr;
+        }
+
+        public String getTimeStr() {
+            return timeStr;
+        }
+
+        public void setTimeStr(String timeStr) {
+            this.timeStr = timeStr;
+        }
+
+        public String getAboveTimeStr() {
+            return aboveTimeStr;
+        }
+
+        public void setAboveTimeStr(String aboveTimeStr) {
+            this.aboveTimeStr = aboveTimeStr;
+        }
+
+        public int getCircleStatusColor() {
+            return circleStatusColor;
+        }
+
+        public void setCircleStatusColor(int circleStatusColor) {
+            this.circleStatusColor = circleStatusColor;
         }
     }
 }
