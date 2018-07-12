@@ -4,76 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
-            type="com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.viewmodel.HomeAlarmRecordListVM"/>
+            type="com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.viewmodel.HomeAlarmRecordListVM" />
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <FrameLayout
         android:id="@+id/home_alarm_child_list_item"
-        android:background="@android:color/white"
-        android:layout_marginStart="@dimen/home_alarm_child_layout_margin_sides"
-        android:layout_marginEnd="@dimen/home_alarm_child_layout_margin_sides"
-        android:layout_marginBottom="@dimen/home_alarm_child_layout_margin_bottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/home_alarm_child_list_height">
+        android:layout_height="@dimen/home_alarm_child_list_height"
+        android:layout_marginBottom="@dimen/home_alarm_child_layout_margin_bottom"
+        android:layout_marginEnd="@dimen/home_alarm_child_layout_margin_sides"
+        android:layout_marginStart="@dimen/home_alarm_child_layout_margin_sides"
+        android:background="@android:color/white">
 
-        <TextView
-            android:id="@+id/child_title_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/home_alarm_child_title_txt_height"
-            android:layout_marginStart="@dimen/home_alarm_child_title_txt_margin_start"
-            android:layout_marginTop="@dimen/home_alarm_child_title_txt_margin_top"
-            android:text="@{viewModel.model.titleStr}"
-            android:textSize="@dimen/home_alarm_child_title_txt_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="child" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/child_des_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/home_alarm_child_des_txt_margin_bottom"
-            android:layout_marginStart="@dimen/home_alarm_child_des_txt_margin_start"
-            android:text="@{viewModel.model.sourceOfAlarmStr}"
-            android:textSize="@dimen/home_alarm_child_des_txt_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/child_title_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/home_alarm_child_title_txt_height"
+                android:layout_marginStart="@dimen/home_alarm_child_title_txt_margin_start"
+                android:layout_marginTop="@dimen/home_alarm_child_title_txt_margin_top"
+                android:text="@{viewModel.model.titleStr}"
+                android:textSize="@dimen/home_alarm_child_title_txt_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="child" />
 
-        <TextView
-            android:id="@+id/child_above_alarm_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/home_alarm_child_above_alarm_txt_margin_end"
-            android:text="@{viewModel.model.aboveTimeStr}"
-            android:textSize="@dimen/home_alarm_child_above_time_txt_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/child_title_txt" />
+            <TextView
+                android:id="@+id/child_des_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/home_alarm_child_des_txt_margin_bottom"
+                android:layout_marginStart="@dimen/home_alarm_child_des_txt_margin_start"
+                android:text="@{viewModel.model.sourceOfAlarmStr}"
+                android:textSize="@dimen/home_alarm_child_des_txt_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/child_time_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/home_alarm_child_time_txt_margin_bottom"
-            android:layout_marginEnd="@dimen/home_alarm_child_time_txt_margin_end"
-            android:text="@{viewModel.model.timeStr}"
-            android:textSize="@dimen/home_alarm_child_time_txt_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/child_above_alarm_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/home_alarm_child_above_alarm_txt_margin_end"
+                android:text="@{viewModel.model.aboveTimeStr}"
+                android:textSize="@dimen/home_alarm_child_above_time_txt_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/child_title_txt" />
 
-        <ImageView
-            android:id="@+id/child_circle_status_img"
-            android:layout_width="@dimen/home_alarm_child_circle_width"
-            android:layout_height="@dimen/home_alarm_child_circle_height"
-            android:layout_marginEnd="@dimen/home_alarm_child_circle_margin_end"
-            app:layout_constraintBottom_toBottomOf="@+id/child_above_alarm_txt"
-            app:layout_constraintEnd_toStartOf="@+id/child_above_alarm_txt"
-            app:layout_constraintTop_toTopOf="@+id/child_above_alarm_txt"
-            app:srcCompat="@drawable/circle_red" />
+            <TextView
+                android:id="@+id/child_time_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/home_alarm_child_time_txt_margin_bottom"
+                android:layout_marginEnd="@dimen/home_alarm_child_time_txt_margin_end"
+                android:text="@{viewModel.model.timeStr}"
+                android:textSize="@dimen/home_alarm_child_time_txt_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+            <ImageView
+                android:id="@+id/child_circle_status_img"
+                android:layout_width="@dimen/home_alarm_child_circle_width"
+                android:layout_height="@dimen/home_alarm_child_circle_height"
+                android:layout_marginEnd="@dimen/home_alarm_child_circle_margin_end"
+                app:layout_constraintBottom_toBottomOf="@+id/child_above_alarm_txt"
+                app:layout_constraintEnd_toStartOf="@+id/child_above_alarm_txt"
+                app:layout_constraintTop_toTopOf="@+id/child_above_alarm_txt"
+                app:srcCompat="@drawable/circle_red" />
+
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 </layout>

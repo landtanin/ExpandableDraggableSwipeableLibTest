@@ -2,7 +2,9 @@ package com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.mod
 
 import android.support.annotation.ColorRes;
 
-public class HomeAlarmChildItem {
+import com.landtanin.expandabledraggableswipeabletest.data.AbstractExpandableDataProvider;
+
+public class HomeAlarmChildModel extends AbstractExpandableDataProvider.ChildData {
 
     private int id;
     private String titleStr;
@@ -11,7 +13,7 @@ public class HomeAlarmChildItem {
     private String aboveTimeStr;
     private int circleStatusColor;
 
-    private HomeAlarmChildItem(Builder builder) {
+    private HomeAlarmChildModel(Builder builder) {
         this.id = builder.id;
         this.titleStr = builder.titleStr;
         this.sourceOfAlarmStr = builder.sourceOfAlarmStr;
@@ -68,6 +70,26 @@ public class HomeAlarmChildItem {
         this.circleStatusColor = circleStatusColor;
     }
 
+    @Override
+    public String getText() {
+        return null;
+    }
+
+    @Override
+    public void setPinned(boolean pinned) {
+
+    }
+
+    @Override
+    public boolean isPinned() {
+        return false;
+    }
+
+    @Override
+    public long getChildId() {
+        return 0;
+    }
+
     public static class Builder {
 
         // Required parameters
@@ -111,8 +133,8 @@ public class HomeAlarmChildItem {
             return this;
         }
 
-        public HomeAlarmChildItem build() {
-            return new HomeAlarmChildItem(this);
+        public HomeAlarmChildModel build() {
+            return new HomeAlarmChildModel(this);
         }
 
     }

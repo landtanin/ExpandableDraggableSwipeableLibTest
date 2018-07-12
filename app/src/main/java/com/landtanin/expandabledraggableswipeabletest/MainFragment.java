@@ -180,11 +180,11 @@ public class MainFragment extends Fragment
 
 //        for (int groupIndex = 0; groupIndex < 15; groupIndex++) {
 //
-//            HomeAlarmGroupItem group = new HomeAlarmGroupItem(
+//            HomeAlarmGroupModel group = new HomeAlarmGroupModel(
 //                    groupIndex,
 //                    "group " + groupIndex);
 //            for (int i = 0; i < 5; i++) {
-//                group.children.add(new HomeAlarmChildItem(i, "name " + i));
+//                group.children.add(new HomeAlarmChildModel(i, "name " + i));
 //            }
 //
 //            groupModels.add(group);

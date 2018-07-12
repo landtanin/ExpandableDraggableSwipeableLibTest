@@ -15,16 +15,16 @@ import com.h6ah4i.android.widget.advrecyclerview.swipeable.action.SwipeResultAct
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.action.SwipeResultActionDoNothing;
 import com.h6ah4i.android.widget.advrecyclerview.swipeable.action.SwipeResultActionMoveToSwipedDirection;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractSwipeableItemViewHolder;
-import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildItem;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildModel;
 
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.RecyclerViewHolder> implements SwipeableItemAdapter<MyAdapter.RecyclerViewHolder> {
 
     Context context;
-    private List<HomeAlarmChildItem> newList;
+    private List<HomeAlarmChildModel> newList;
 
-    public MyAdapter(Context context, List<HomeAlarmChildItem> newList) {
+    public MyAdapter(Context context, List<HomeAlarmChildModel> newList) {
         setHasStableIds(true);
         this.context = context;
         this.newList = newList;

@@ -3,23 +3,23 @@ package com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.vie
 import android.databinding.BaseObservable;
 
 import com.landtanin.expandabledraggableswipeabletest.BaseViewModel;
-import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmGroupItem;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmGroupModel;
 
 
 public class HomeAlarmGroupListVM extends BaseObservable implements BaseViewModel {
 
     private final String TAG = getClass().getSimpleName();
-    private HomeAlarmGroupItem model;
+    private HomeAlarmGroupModel model;
 //    private HomeAlarmGroupContract mHomeContract;
 
     public HomeAlarmGroupListVM() {
     }
 
-    public HomeAlarmGroupItem getModel() {
+    public HomeAlarmGroupModel getModel() {
         return model;
     }
 
-    public void setModel(HomeAlarmGroupItem model) {
+    public void setModel(HomeAlarmGroupModel model) {
         this.model = model;
         updateContent();
         notifyChange();

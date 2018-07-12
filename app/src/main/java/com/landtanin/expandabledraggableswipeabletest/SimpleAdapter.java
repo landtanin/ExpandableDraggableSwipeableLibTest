@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildItem;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildModel;
 
 import java.util.List;
 
 public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.SimpleViewHolder> {
 
     Context context;
-    private List<HomeAlarmChildItem> modelList;
+    private List<HomeAlarmChildModel> modelList;
 
-    public SimpleAdapter(Context context, List<HomeAlarmChildItem> modelList) {
+    public SimpleAdapter(Context context, List<HomeAlarmChildModel> modelList) {
         this.context = context;
         this.modelList = modelList;
     }

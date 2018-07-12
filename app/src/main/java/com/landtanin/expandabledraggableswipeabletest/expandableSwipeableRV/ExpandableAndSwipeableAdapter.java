@@ -26,8 +26,6 @@ import com.h6ah4i.android.widget.advrecyclerview.utils.RecyclerViewAdapterUtils;
 import com.landtanin.expandabledraggableswipeabletest.R;
 import com.landtanin.expandabledraggableswipeabletest.data.AbstractExpandableDataProvider;
 import com.landtanin.expandabledraggableswipeabletest.utils.DrawableUtils;
-import com.landtanin.expandabledraggableswipeabletest.utils.ViewUtils;
-import com.landtanin.expandabledraggableswipeabletest.widget.ExpandableItemIndicator;
 
 public class ExpandableAndSwipeableAdapter
         extends AbstractExpandableItemAdapter<ExpandableAndSwipeableAdapter.GroupVH,
@@ -75,14 +73,14 @@ public class ExpandableAndSwipeableAdapter
             implements ExpandableItemViewHolder {
 
         public FrameLayout mContainer;
-        public View mDragHandle;
+//        public View mDragHandle;
         public TextView mTextView;
         private int mExpandStateFlags;
 
         public ExpandSwipeBaseVH(View v) {
             super(v);
             mContainer = v.findViewById(R.id.container);
-            mDragHandle = v.findViewById(R.id.drag_handle);
+//            mDragHandle = v.findViewById(R.id.drag_handle);
             mTextView = v.findViewById(android.R.id.text1);
         }
 
@@ -102,20 +100,67 @@ public class ExpandableAndSwipeableAdapter
         }
     }
 
-    public static class GroupVH extends ExpandSwipeBaseVH {
-        public ExpandableItemIndicator mIndicator;
+    public static class GroupVH extends AbstractDraggableSwipeableItemViewHolder implements ExpandableItemViewHolder {
+
+        public FrameLayout mContainer;
+        public TextView mTextView;
+        private int mExpandStateFlags;
 
         public GroupVH(View v) {
             super(v);
-            mIndicator = v.findViewById(R.id.indicator);
+
+            mContainer = v.findViewById(R.id.container);
+//            mDragHandle = v.findViewById(R.id.drag_handle);
+            mTextView = v.findViewById(R.id.header_title_txt);
+        }
+
+        @Override
+        public int getExpandStateFlags() {
+            return mExpandStateFlags;
+        }
+
+        @Override
+        public void setExpandStateFlags(int flag) {
+            mExpandStateFlags = flag;
+        }
+
+        @Override
+        public View getSwipeableContainerView() {
+            return mContainer;
         }
     }
 
-    public static class ChildVH extends ExpandSwipeBaseVH {
+    public static class ChildVH extends AbstractDraggableSwipeableItemViewHolder implements ExpandableItemViewHolder {
+
+        public FrameLayout mContainer;
+        //        public View mDragHandle;
+        public TextView mTextView;
+        private int mExpandStateFlags;
+
         public ChildVH(View v) {
             super(v);
+            mContainer = v.findViewById(R.id.container);
+//            mDragHandle = v.findViewById(R.id.drag_handle);
+            mTextView = v.findViewById(android.R.id.text1);
+        }
+
+        @Override
+        public int getExpandStateFlags() {
+            return mExpandStateFlags;
+        }
+
+        @Override
+        public void setExpandStateFlags(int flag) {
+            mExpandStateFlags = flag;
+        }
+
+        @Override
+        public View getSwipeableContainerView() {
+            return mContainer;
         }
     }
+
+
 
     // --------------------Constructor--------------------
     public ExpandableAndSwipeableAdapter(RecyclerViewExpandableItemManager expandableItemManager,
@@ -320,8 +365,9 @@ public class ExpandableAndSwipeableAdapter
     @Override
     public GroupVH onCreateGroupViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        final View v = inflater.inflate(R.layout.list_group_item, parent, false);
+        final View v = inflater.inflate(R.layout.list_item_home_alarm_group, parent, false);
         return new GroupVH(v);
+
     }
 
     @Override
@@ -377,7 +423,7 @@ public class ExpandableAndSwipeableAdapter
 
 //            holder.mContainer.setBackgroundResource(bgResId);
             holder.mContainer.setBackgroundResource(R.drawable.bg_item_normal_state);
-            holder.mIndicator.setExpandedState(isExpanded, animateIndicator);
+//            holder.mIndicator.setExpandedState(isExpanded, animateIndicator);
         }
 
         // set swiping properties
@@ -443,13 +489,15 @@ public class ExpandableAndSwipeableAdapter
             return false;
         }
 
-        final View containerView = holder.mContainer;
-        final View dragHandleView = holder.mDragHandle;
+        return true;
 
-        final int offsetX = containerView.getLeft() + (int) (containerView.getTranslationX() + 0.5f);
-        final int offsetY = containerView.getTop() + (int) (containerView.getTranslationY() + 0.5f);
-
-        return !ViewUtils.hitTest(dragHandleView, x - offsetX, y - offsetY);
+//        final View containerView = holder.mContainer;
+//        final View dragHandleView = holder.mDragHandle;
+//
+//        final int offsetX = containerView.getLeft() + (int) (containerView.getTranslationX() + 0.5f);
+//        final int offsetY = containerView.getTop() + (int) (containerView.getTranslationY() + 0.5f);
+//
+//        return !ViewUtils.hitTest(dragHandleView, x - offsetX, y - offsetY);
     }
 
     @Override
@@ -513,27 +561,6 @@ public class ExpandableAndSwipeableAdapter
     public void setEventListener(EventListener eventListener) {
         mEventListener = eventListener;
     }
-
-//    @Override
-//    public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        View itemView = LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.list_item, parent, false);
-//
-//        return new SimpleViewHolder(itemView);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(SimpleViewHolder holder, int position) {
-//
-//        SimpleViewHolder holder1 = holder;
-//        holder1.textView.setText(modelList.get(position).getTitleStr());
-//
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return modelList.size();
-//    }
 
     // ------------------Swipe action methods------------------
 

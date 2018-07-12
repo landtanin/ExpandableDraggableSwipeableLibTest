@@ -2,13 +2,15 @@ package com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.mod
 
 import android.support.annotation.ColorRes;
 
+import com.landtanin.expandabledraggableswipeabletest.data.AbstractExpandableDataProvider;
+
 import java.util.List;
 
-public class HomeAlarmGroupItem {
+public class HomeAlarmGroupModel extends AbstractExpandableDataProvider.GroupData {
 
     private int id;
     private String titleStr;
-    public List<HomeAlarmChildItem> children;
+    public List<HomeAlarmChildModel> children;
 
     private String detailStr;
     private String noOfOpenAlarmStr;
@@ -19,7 +21,7 @@ public class HomeAlarmGroupItem {
     private String lastAlarmTimeStr;
     private int cardStatusColor;
 
-    public HomeAlarmGroupItem(Builder builder) {
+    public HomeAlarmGroupModel(Builder builder) {
         this.id = builder.id;
         this.titleStr = builder.titleStr;
         this.detailStr = builder.detailStr;
@@ -30,10 +32,6 @@ public class HomeAlarmGroupItem {
         this.lastAlarmLabelStr = builder.lastAlarmLabelStr;
         this.lastAlarmTimeStr = builder.lastAlarmTimeStr;
         this.cardStatusColor = builder.cardStatusColor;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public void setId(int id) {
@@ -112,6 +110,31 @@ public class HomeAlarmGroupItem {
         this.cardStatusColor = cardStatusColor;
     }
 
+    @Override
+    public String getText() {
+        return null;
+    }
+
+    @Override
+    public void setPinned(boolean pinned) {
+
+    }
+
+    @Override
+    public boolean isPinned() {
+        return false;
+    }
+
+    @Override
+    public boolean isSectionHeader() {
+        return false;
+    }
+
+    @Override
+    public long getGroupId() {
+        return id;
+    }
+
     public static class Builder {
 
         // Required parameters
@@ -184,8 +207,8 @@ public class HomeAlarmGroupItem {
             return this;
         }
 
-        public HomeAlarmGroupItem build() {
-            return new HomeAlarmGroupItem(this);
+        public HomeAlarmGroupModel build() {
+            return new HomeAlarmGroupModel(this);
         }
     }
 }

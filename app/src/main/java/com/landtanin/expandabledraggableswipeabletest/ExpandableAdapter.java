@@ -8,17 +8,17 @@ import android.widget.TextView;
 
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemViewHolder;
-import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildItem;
-import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmGroupItem;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildModel;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmGroupModel;
 
 import java.util.List;
 
 public class ExpandableAdapter extends AbstractExpandableItemAdapter<ExpandableAdapter.GroupVH, ExpandableAdapter.ChildVH> {
 
     Context context;
-    private List<HomeAlarmGroupItem> groupModels;
+    private List<HomeAlarmGroupModel> groupModels;
 
-    public ExpandableAdapter(Context context, List<HomeAlarmGroupItem> groupModels) {
+    public ExpandableAdapter(Context context, List<HomeAlarmGroupModel> groupModels) {
         setHasStableIds(true);
         this.context = context;
         this.groupModels = groupModels;
@@ -36,7 +36,7 @@ public class ExpandableAdapter extends AbstractExpandableItemAdapter<ExpandableA
 
     @Override
     public long getGroupId(int groupPosition) {
-        return groupModels.get(groupPosition).getId();
+        return groupModels.get(groupPosition).getGroupId();
     }
 
     @Override
@@ -63,14 +63,14 @@ public class ExpandableAdapter extends AbstractExpandableItemAdapter<ExpandableA
     @Override
     public void onBindGroupViewHolder(GroupVH holder, int groupPosition, int viewType) {
 
-        HomeAlarmGroupItem item = groupModels.get(groupPosition);
+        HomeAlarmGroupModel item = groupModels.get(groupPosition);
         holder.textView.setText(item.getTitleStr());
     }
 
     @Override
     public void onBindChildViewHolder(ChildVH holder, int groupPosition, int childPosition, int viewType) {
 
-        HomeAlarmChildItem item = groupModels.get(childPosition).children.get(childPosition);
+        HomeAlarmChildModel item = groupModels.get(childPosition).children.get(childPosition);
         holder.textView.setText(item.getTimeStr());
     }
 

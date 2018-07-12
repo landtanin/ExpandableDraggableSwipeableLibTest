@@ -3,24 +3,24 @@ package com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.vie
 import android.databinding.BaseObservable;
 
 import com.landtanin.expandabledraggableswipeabletest.BaseViewModel;
-import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildItem;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.model.HomeAlarmChildModel;
 
 
 public class HomeAlarmRecordListVM extends BaseObservable implements BaseViewModel {
 
-    private HomeAlarmChildItem model;
+    private HomeAlarmChildModel model;
 
     public HomeAlarmRecordListVM() {
 
     }
 
-    public void setModel(HomeAlarmChildItem model) {
+    public void setModel(HomeAlarmChildModel model) {
         this.model = model;
         updateContent();
         notifyChange();
     }
 
-    public HomeAlarmChildItem getModel() {
+    public HomeAlarmChildModel getModel() {
         return model;
     }
 
