@@ -1,5 +1,6 @@
 package com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +26,9 @@ import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemAda
 import com.h6ah4i.android.widget.advrecyclerview.utils.RecyclerViewAdapterUtils;
 import com.landtanin.expandabledraggableswipeabletest.R;
 import com.landtanin.expandabledraggableswipeabletest.data.AbstractExpandableDataProvider;
+import com.landtanin.expandabledraggableswipeabletest.data.ExampleExpandableDataProvider;
+import com.landtanin.expandabledraggableswipeabletest.databinding.ListItemHomeAlarmGroupBinding;
+import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.viewmodel.HomeAlarmGroupListVM;
 import com.landtanin.expandabledraggableswipeabletest.utils.DrawableUtils;
 
 public class ExpandableAndSwipeableAdapter
@@ -103,15 +107,33 @@ public class ExpandableAndSwipeableAdapter
     public static class GroupVH extends AbstractDraggableSwipeableItemViewHolder implements ExpandableItemViewHolder {
 
         public FrameLayout mContainer;
-        public TextView mTextView;
+//        public TextView mTextView;
         private int mExpandStateFlags;
 
-        public GroupVH(View v) {
-            super(v);
+        private ListItemHomeAlarmGroupBinding mBinding;
 
-            mContainer = v.findViewById(R.id.container);
-//            mDragHandle = v.findViewById(R.id.drag_handle);
-            mTextView = v.findViewById(R.id.header_title_txt);
+//        public GroupVH(View v) {
+//            super(v);
+//
+//            mContainer = v.findViewById(R.id.container);
+////            mDragHandle = v.findViewById(R.id.drag_handle);
+//            mTextView = v.findViewById(R.id.header_title_txt);
+//        }
+
+        public GroupVH(ListItemHomeAlarmGroupBinding binding) {
+            super(binding.getRoot());
+
+            mBinding = binding;
+            HomeAlarmGroupListVM viewModel = new HomeAlarmGroupListVM();
+            mBinding.setViewModel(viewModel);
+
+            mContainer = binding.getRoot().findViewById(R.id.container);
+
+        }
+
+        public void bind(ExampleExpandableDataProvider.ConcreteGroupData model) {
+            mBinding.getViewModel().setModel(model);
+            mBinding.executePendingBindings();
         }
 
         @Override
@@ -365,9 +387,15 @@ public class ExpandableAndSwipeableAdapter
     @Override
     public GroupVH onCreateGroupViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        final View v = inflater.inflate(R.layout.list_item_home_alarm_group, parent, false);
-        return new GroupVH(v);
+//        final View v = inflater.inflate(R.layout.list_item_home_alarm_group, parent, false);
+//        return new GroupVH(v);
 
+        ListItemHomeAlarmGroupBinding binding = DataBindingUtil
+                .inflate(inflater,
+                        R.layout.list_item_home_alarm_group,
+                        parent,
+                        false);
+        return new GroupVH(binding);
     }
 
     @Override
@@ -385,8 +413,11 @@ public class ExpandableAndSwipeableAdapter
         // set listeners
         holder.itemView.setOnClickListener(mItemViewOnClickListener);
 
-        // set text
-        holder.mTextView.setText(item.getText());
+        // set content
+//        holder.mTextView.setText(item.getTitle());
+        ExampleExpandableDataProvider.ConcreteGroupData groupModel
+                = (ExampleExpandableDataProvider.ConcreteGroupData) mProvider.getGroupItem(groupPosition);
+        holder.bind(groupModel);
 
         // set background resource (target view ID: container)
         final int dragState = holder.getDragStateFlags();
@@ -443,7 +474,7 @@ public class ExpandableAndSwipeableAdapter
         holder.mContainer.setOnClickListener(mSwipeableViewContainerOnClickListener);
 
         // set text
-        holder.mTextView.setText(item.getText());
+        holder.mTextView.setText(item.getTitle());
 
         final int dragState = holder.getDragStateFlags();
         final int swipeState = holder.getSwipeStateFlags();

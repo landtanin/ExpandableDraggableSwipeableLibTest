@@ -71,7 +71,7 @@ public class HomeAlarmChildModel extends AbstractExpandableDataProvider.ChildDat
     }
 
     @Override
-    public String getText() {
+    public String getTitle() {
         return null;
     }
 

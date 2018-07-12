@@ -111,7 +111,7 @@ public class HomeAlarmGroupModel extends AbstractExpandableDataProvider.GroupDat
     }
 
     @Override
-    public String getText() {
+    public String getTitle() {
         return null;
     }
 

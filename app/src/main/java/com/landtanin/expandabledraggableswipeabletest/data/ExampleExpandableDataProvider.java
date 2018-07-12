@@ -209,13 +209,23 @@ public class ExampleExpandableDataProvider extends AbstractExpandableDataProvide
     public static final class ConcreteGroupData extends GroupData {
 
         private final long mId;
-        private final String mText;
+        private final String titleStr;
+
         private boolean mPinned;
         private long mNextChildId;
 
-        ConcreteGroupData(long id, String text) {
+        private String detailStr;
+        private String noOfOpenAlarmStr;
+        private int noOfOpenAlarmInt;
+        private String noOfTotalAlarmStr;
+        private int noOfTotalAlarmInt;
+        private String lastAlarmLabelStr;
+        private String lastAlarmTimeStr;
+        private int cardStatusColor;
+
+        ConcreteGroupData(long id, String title) {
             mId = id;
-            mText = text;
+            titleStr = title;
             mNextChildId = 0;
         }
 
@@ -230,8 +240,8 @@ public class ExampleExpandableDataProvider extends AbstractExpandableDataProvide
         }
 
         @Override
-        public String getText() {
-            return mText;
+        public String getTitle() {
+            return titleStr;
         }
 
         @Override
@@ -242,6 +252,70 @@ public class ExampleExpandableDataProvider extends AbstractExpandableDataProvide
         @Override
         public boolean isPinned() {
             return mPinned;
+        }
+
+        public String getDetailStr() {
+            return detailStr;
+        }
+
+        public void setDetailStr(String detailStr) {
+            this.detailStr = detailStr;
+        }
+
+        public String getNoOfOpenAlarmStr() {
+            return noOfOpenAlarmStr;
+        }
+
+        public void setNoOfOpenAlarmStr(String noOfOpenAlarmStr) {
+            this.noOfOpenAlarmStr = noOfOpenAlarmStr;
+        }
+
+        public int getNoOfOpenAlarmInt() {
+            return noOfOpenAlarmInt;
+        }
+
+        public void setNoOfOpenAlarmInt(int noOfOpenAlarmInt) {
+            this.noOfOpenAlarmInt = noOfOpenAlarmInt;
+        }
+
+        public String getNoOfTotalAlarmStr() {
+            return noOfTotalAlarmStr;
+        }
+
+        public void setNoOfTotalAlarmStr(String noOfTotalAlarmStr) {
+            this.noOfTotalAlarmStr = noOfTotalAlarmStr;
+        }
+
+        public int getNoOfTotalAlarmInt() {
+            return noOfTotalAlarmInt;
+        }
+
+        public void setNoOfTotalAlarmInt(int noOfTotalAlarmInt) {
+            this.noOfTotalAlarmInt = noOfTotalAlarmInt;
+        }
+
+        public String getLastAlarmLabelStr() {
+            return lastAlarmLabelStr;
+        }
+
+        public void setLastAlarmLabelStr(String lastAlarmLabelStr) {
+            this.lastAlarmLabelStr = lastAlarmLabelStr;
+        }
+
+        public String getLastAlarmTimeStr() {
+            return lastAlarmTimeStr;
+        }
+
+        public void setLastAlarmTimeStr(String lastAlarmTimeStr) {
+            this.lastAlarmTimeStr = lastAlarmTimeStr;
+        }
+
+        public int getCardStatusColor() {
+            return cardStatusColor;
+        }
+
+        public void setCardStatusColor(int cardStatusColor) {
+            this.cardStatusColor = cardStatusColor;
         }
 
         public long generateNewChildId() {
@@ -268,7 +342,7 @@ public class ExampleExpandableDataProvider extends AbstractExpandableDataProvide
         }
 
         @Override
-        public String getText() {
+        public String getTitle() {
             return mText;
         }
 

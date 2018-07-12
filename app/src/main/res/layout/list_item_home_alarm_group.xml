@@ -65,7 +65,7 @@
                         android:layout_height="17dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
-                        android:text="@{viewModel.model.titleStr}"
+                        android:text="@{viewModel.model.title}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="header" />

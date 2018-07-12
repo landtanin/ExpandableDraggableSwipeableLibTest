@@ -19,12 +19,12 @@ import com.landtanin.expandabledraggableswipeabletest.expandableSwipeableRV.mode
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.RecyclerViewHolder> implements SwipeableItemAdapter<MyAdapter.RecyclerViewHolder> {
+public class SwipeableAdapter extends RecyclerView.Adapter<SwipeableAdapter.RecyclerViewHolder> implements SwipeableItemAdapter<SwipeableAdapter.RecyclerViewHolder> {
 
     Context context;
     private List<HomeAlarmChildModel> newList;
 
-    public MyAdapter(Context context, List<HomeAlarmChildModel> newList) {
+    public SwipeableAdapter(Context context, List<HomeAlarmChildModel> newList) {
         setHasStableIds(true);
         this.context = context;
         this.newList = newList;

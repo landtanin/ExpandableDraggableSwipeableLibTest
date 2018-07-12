@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableItemPin
 //        recyclerView = findViewById(R.id.rv);
 //        RecyclerViewSwipeManager swipeManager = new RecyclerViewSwipeManager();
 //
-//        MyAdapter recyclerAdapter = new MyAdapter(this, models);
+//        SwipeableAdapter recyclerAdapter = new SwipeableAdapter(this, models);
 //        RecyclerView.Adapter wrappedAdapter = swipeManager.createWrappedAdapter(recyclerAdapter);
 //
 //        recyclerView.setAdapter(wrappedAdapter);
